@@ -4,9 +4,125 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VirtualKeyboardDemo"
+        xmlns:MyNamespace="clr-namespace:VirtualKeyboardLibrary;assembly=VirtualKeyboardLibrary"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="800" Width="900" >
+    <Grid x:Name="_mainGrid" Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
 
+        <Grid Grid.Row="0" MouseLeftButtonDown="_mainGrid_MouseLeftButtonDown" Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Grid.ColumnSpan="2"
+                       Grid.Row="1"
+                       Text="User info:"
+                       TextAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="35"
+                       FontWeight="Bold"
+                       Foreground="Black">
+            </TextBlock>
+
+        </Grid>
+
+        <Grid Grid.Row="1" MouseLeftButtonDown="_mainGrid_MouseLeftButtonDown" Background="Transparent">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBox Grid.Column="1" 
+                     Grid.Row="0" 
+                     BorderThickness="2" 
+                     Margin="10" 
+                     IsKeyboardFocusedChanged="TextBox_IsKeyboardFocusedChangedFull"
+                     FontSize="18"
+                     FontWeight="DemiBold"
+                     />
+
+            <TextBlock Grid.Column="0"
+                       Grid.Row="0"
+                       Background="#02fa30"
+                       Text="Login:"
+                       TextAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Foreground="Black"
+                       Margin="10">
+            </TextBlock>
+
+            <TextBox Grid.Column="1" 
+                     Grid.Row="1" 
+                     Margin="10" 
+                     IsKeyboardFocusedChanged="TextBox_IsKeyboardFocusedChangedAlf"
+                     FontSize="18"
+                     FontWeight="DemiBold"
+                     />
+
+            <TextBlock Grid.Column="0"
+                       Grid.Row="1"
+                       Background="#02fa30"
+                       Foreground="Black"
+                       Text="Full name:"
+                       TextAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Margin="10">
+            </TextBlock>
+
+
+            <TextBox 
+                Grid.Column="1" 
+                Grid.Row="2" 
+                BorderThickness="2" 
+                Margin="10" 
+                IsKeyboardFocusedChanged="TextBox_IsKeyboardFocusedChangedNum"
+                FontSize="18"
+                FontWeight="DemiBold"
+                />
+
+            <TextBlock Grid.Column="0"
+                       Grid.Row="2"
+                       Background="#02fa30"
+                       Foreground="Black"
+                       Text="Date of birth:"
+                       TextAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       Margin="10">
+
+            </TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <MyNamespace:VirtualKeyboard x:Name="_keyboardFull" Type="Full"/>
+            <MyNamespace:VirtualKeyboard x:Name="_keyboardAlf" Type="Alfbet"/>
+            <MyNamespace:VirtualKeyboard x:Name="_keyboardNum" Type="Numpad"/>
+        </Grid>
     </Grid>
 </Window>

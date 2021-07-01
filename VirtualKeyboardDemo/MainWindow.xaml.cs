@@ -23,6 +23,38 @@ namespace VirtualKeyboardDemo
         public MainWindow()
         {
             InitializeComponent();
+            _keyboardFull.Visibility = Visibility.Hidden;
+            _keyboardAlf.Visibility = Visibility.Hidden;
+            _keyboardNum.Visibility = Visibility.Hidden;
+        }
+
+        private void TextBox_IsKeyboardFocusedChangedFull(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            _keyboardFull.Visibility = Visibility.Visible;
+            _keyboardAlf.Visibility = Visibility.Hidden;
+            _keyboardNum.Visibility = Visibility.Hidden;
+        }
+
+        private void TextBox_IsKeyboardFocusedChangedAlf(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
+            _keyboardFull.Visibility = Visibility.Hidden;
+            _keyboardAlf.Visibility = Visibility.Visible;
+            _keyboardNum.Visibility = Visibility.Hidden;
+        }
+
+        private void TextBox_IsKeyboardFocusedChangedNum(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            _keyboardFull.Visibility = Visibility.Hidden;
+            _keyboardAlf.Visibility = Visibility.Hidden;
+            _keyboardNum.Visibility = Visibility.Visible;
+        }
+
+        private void _mainGrid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            _keyboardFull.Visibility = Visibility.Hidden;
+            _keyboardAlf.Visibility = Visibility.Hidden;
+            _keyboardNum.Visibility = Visibility.Hidden;
         }
     }
 }
